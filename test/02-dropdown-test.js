@@ -18,19 +18,19 @@ function setup(customProps = {}) {
 }
 
 describe('Component: Dropdown', () => {
-  xit('renders a given selection', () => {
+  it('renders a given selection', () => {
     const component = setup();
 
     expect(component.find('.dropdown__toggle').text()).to.match(/item1/);
   });
 
-  xit('renders initially with the menu closed', () => {
+  it('renders initially with the menu closed', () => {
     const component = setup();
 
     expect(component.find('.dropdown__menu')).to.have.length(0);
   });
 
-  xit('renders the menu after being clicked', () => {
+  it('renders the menu after being clicked', () => {
     const component = setup();
 
     component.find('.dropdown__toggle').simulate('click');
@@ -53,20 +53,20 @@ describe('Component: Dropdown', () => {
       component.find('.dropdown__menu li').at(1).simulate('click');
     });
 
-    xit('sets the dropdown\'s value', () => {
+    it('sets the dropdown\'s value', () => {
       expect(component.find('.dropdown__toggle').text()).to.match(/item2/);
     });
 
-    xit('closes the menu', () => {
+    it('closes the menu', () => {
       expect(component.find('.dropdown__menu')).to.have.length(0);
     });
 
-    xit('fires a callback with the correct arguments', () => {
+    it('fires a callback with the correct arguments', () => {
       expect(onSelectSpy.calledWith('item2')).to.be.true;
     });
   });
 
-  xit('doesn\'t fire a callback when a user re-picks the currently selected option', () => {
+  it('doesn\'t fire a callback when a user re-picks the currently selected option', () => {
     const onSelectSpy = sinon.spy();
     const component = setup({
       onSelect: onSelectSpy,

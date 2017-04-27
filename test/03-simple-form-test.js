@@ -18,20 +18,20 @@ const setup = (customProps = {}) => {
 
 describe('Component: SimpleForm', () => {
 
-  xit('renders the title', ()=> {
+  it('renders the title', ()=> {
     const component = setup();
 
     const title = component.props().title;
     expect(component.text()).to.include(title);
   });
 
-  xit('renders a button', ()=> {
+  it('renders a button', ()=> {
     const component = setup();
 
     expect(component.find('button')).to.have.length(1);
   });
 
-  xit('renders an input field and corresponding label', ()=> {
+  it('renders an input field and corresponding label', ()=> {
     const component = setup();
 
     expect(component.find('input').props().id).to.equal('add-new-song');
@@ -46,14 +46,14 @@ describe('Component: SimpleForm', () => {
 
     describe('and the input field is empty', ()=> {
 
-      xit('there\'s a placeholder in the input field', ()=> {
+      it('there\'s a placeholder in the input field', ()=> {
         const component = setup();
 
         const placeholder = component.props().inputFieldPlaceholder;
         expect(component.find('input').props().placeholder).to.equal(placeholder);
       });
 
-      xit('the button is disabled', ()=> {
+      it('the button is disabled', ()=> {
         const component = setup();
 
         expect(component.find('button').node.disabled).to.be.true;
@@ -71,7 +71,7 @@ describe('Component: SimpleForm', () => {
         });
       });
 
-      xit('the onSubmit function is called', ()=> {
+      it('the onSubmit function is called', ()=> {
         const value = 'Survivor';
 
         component.find('input').simulate('change', { target: { value: value }})
